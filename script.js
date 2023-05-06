@@ -5,12 +5,12 @@ const text = document.getElementById('text');
 
 function workWithNumber () {
     const input = document.getElementById('input').value;
-    //делим число на цифры и получаем массив
-    const arr = input.split('');
+    //делим число на цифры, убираем лишние символы из отрицательных и дробных чисел, получаем массив
+    const arr = input.replace(/[.-]/g, '').split('');
     //получаем цифры
     const numbers = arr.join(', ');
     //получаем количество цифр
-    const numbersLength = input.length;
+    const numbersLength = arr.length;
     //вычисляем сумму цифр
     const sum = arr.reduce((acc, item) => Number(acc) + Number(item));
     //выводим цифры в обратном порядке
